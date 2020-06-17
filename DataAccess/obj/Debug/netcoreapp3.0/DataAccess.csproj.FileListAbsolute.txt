@@ -1,0 +1,15 @@
+C:\Users\mkisw\source\repos\BusTracker\DataAccess\obj\Debug\netcoreapp3.0\DataAccess.csprojAssemblyReference.cache
+C:\Users\mkisw\source\repos\BusTracker\DataAccess\obj\Debug\netcoreapp3.0\DataAccess.AssemblyInfoInputs.cache
+C:\Users\mkisw\source\repos\BusTracker\DataAccess\obj\Debug\netcoreapp3.0\DataAccess.AssemblyInfo.cs
+C:\Users\mkisw\source\repos\BusTracker\DataAccess\bin\Debug\netcoreapp3.0\DataAccess.deps.json
+C:\Users\mkisw\source\repos\BusTracker\DataAccess\bin\Debug\netcoreapp3.0\DataAccess.dll
+C:\Users\mkisw\source\repos\BusTracker\DataAccess\bin\Debug\netcoreapp3.0\DataAccess.pdb
+C:\Users\mkisw\source\repos\BusTracker\DataAccess\bin\Debug\netcoreapp3.0\Context.dll
+C:\Users\mkisw\source\repos\BusTracker\DataAccess\bin\Debug\netcoreapp3.0\Entities.dll
+C:\Users\mkisw\source\repos\BusTracker\DataAccess\bin\Debug\netcoreapp3.0\Settings.dll
+C:\Users\mkisw\source\repos\BusTracker\DataAccess\bin\Debug\netcoreapp3.0\Context.pdb
+C:\Users\mkisw\source\repos\BusTracker\DataAccess\bin\Debug\netcoreapp3.0\Entities.pdb
+C:\Users\mkisw\source\repos\BusTracker\DataAccess\bin\Debug\netcoreapp3.0\Settings.pdb
+C:\Users\mkisw\source\repos\BusTracker\DataAccess\obj\Debug\netcoreapp3.0\DataAccess.csproj.CopyComplete
+C:\Users\mkisw\source\repos\BusTracker\DataAccess\obj\Debug\netcoreapp3.0\DataAccess.dll
+C:\Users\mkisw\source\repos\BusTracker\DataAccess\obj\Debug\netcoreapp3.0\DataAccess.pdb

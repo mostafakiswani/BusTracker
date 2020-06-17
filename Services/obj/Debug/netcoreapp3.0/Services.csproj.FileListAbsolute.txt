@@ -1,0 +1,17 @@
+C:\Users\mkisw\source\repos\BusTracker\Services\bin\Debug\netcoreapp3.0\Context.dll
+C:\Users\mkisw\source\repos\BusTracker\Services\bin\Debug\netcoreapp3.0\DataAccess.dll
+C:\Users\mkisw\source\repos\BusTracker\Services\bin\Debug\netcoreapp3.0\Entities.dll
+C:\Users\mkisw\source\repos\BusTracker\Services\bin\Debug\netcoreapp3.0\Settings.dll
+C:\Users\mkisw\source\repos\BusTracker\Services\bin\Debug\netcoreapp3.0\Context.pdb
+C:\Users\mkisw\source\repos\BusTracker\Services\bin\Debug\netcoreapp3.0\Entities.pdb
+C:\Users\mkisw\source\repos\BusTracker\Services\bin\Debug\netcoreapp3.0\Settings.pdb
+C:\Users\mkisw\source\repos\BusTracker\Services\obj\Debug\netcoreapp3.0\Services.csprojAssemblyReference.cache
+C:\Users\mkisw\source\repos\BusTracker\Services\obj\Debug\netcoreapp3.0\Services.AssemblyInfoInputs.cache
+C:\Users\mkisw\source\repos\BusTracker\Services\obj\Debug\netcoreapp3.0\Services.AssemblyInfo.cs
+C:\Users\mkisw\source\repos\BusTracker\Services\bin\Debug\netcoreapp3.0\Services.deps.json
+C:\Users\mkisw\source\repos\BusTracker\Services\bin\Debug\netcoreapp3.0\Services.dll
+C:\Users\mkisw\source\repos\BusTracker\Services\bin\Debug\netcoreapp3.0\Services.pdb
+C:\Users\mkisw\source\repos\BusTracker\Services\bin\Debug\netcoreapp3.0\DataAccess.pdb
+C:\Users\mkisw\source\repos\BusTracker\Services\obj\Debug\netcoreapp3.0\Services.csproj.CopyComplete
+C:\Users\mkisw\source\repos\BusTracker\Services\obj\Debug\netcoreapp3.0\Services.dll
+C:\Users\mkisw\source\repos\BusTracker\Services\obj\Debug\netcoreapp3.0\Services.pdb
