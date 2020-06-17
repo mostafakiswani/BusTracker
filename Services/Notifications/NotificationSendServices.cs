@@ -12,33 +12,33 @@ namespace Services.Notifications
         public static void Send(User user)
         {
             string body = "Welcome User";
-            var Id = ConverterServices.ConvertGuid(user.Id);
+            var Id = SharedServices.ConvertGuid(user.Id);
 
             var notification = new NotificationDto() { Body = body, UserId = Id };
 
             NotificationPushServices.Push(user.DeviceToken, notification);
-            LogsService.Add(body, Id);
+            LogService.Add(body, Id);
 
         }
 
         public static void Send(User user, string body)
         {
-            var Id = ConverterServices.ConvertGuid(user.Id);
+            var Id = SharedServices.ConvertGuid(user.Id);
 
             var notification = new NotificationDto() { Body = body, UserId = Id };
 
             NotificationPushServices.Push(user.DeviceToken, notification);
-            LogsService.Add(body, Id);
+            LogService.Add(body, Id);
 
         }
         public static void Send(User user, string body, int busId)
         {
-            var Id = ConverterServices.ConvertGuid(user.Id);
+            var Id = SharedServices.ConvertGuid(user.Id);
 
             var notification = new NotificationDto() { Body = body, UserId = Id };
 
             NotificationPushServices.Push(user.DeviceToken, busId, notification);
-            LogsService.Add(body, Id);
+            LogService.Add(body, Id);
 
         }
 
@@ -46,12 +46,12 @@ namespace Services.Notifications
         {
             foreach (var user in users)
             {
-                var Id = ConverterServices.ConvertGuid(user.Id);
+                var Id = SharedServices.ConvertGuid(user.Id);
 
                 var notification = new NotificationDto() { Body = body, UserId = Id };
 
                 NotificationPushServices.Push(user.DeviceToken, notification);
-                LogsService.Add(body, Id);
+                LogService.Add(body, Id);
 
             }
         }

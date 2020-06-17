@@ -7,11 +7,11 @@ using System.Text;
 
 namespace Services.Logs
 {
-    public class LogsService
+    public class LogService
     {
         private static IRepository<Log> repository;
-        public LogsService(IRepository<Log> repository)
-        { LogsService.repository = repository; }
+        public LogService(IRepository<Log> repository)
+        { LogService.repository = repository; }
 
         public static void Add(string action)
         {

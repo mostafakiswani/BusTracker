@@ -22,10 +22,5 @@ namespace DataAccess.Repositories
             repository.Update(userFromDb);
 
         }
-
-
-
-
-
     }
 }

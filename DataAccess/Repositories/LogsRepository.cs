@@ -22,7 +22,5 @@ namespace DataAccess.Repositories
             repository.Update(logFromDb);
 
         }
-
-
     }
 }

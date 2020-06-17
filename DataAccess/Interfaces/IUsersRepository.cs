@@ -7,6 +7,5 @@ namespace DataAccess.Interfaces
     public interface IUsersRepository
     {
         void Block(Guid id);
-
     }
 }
