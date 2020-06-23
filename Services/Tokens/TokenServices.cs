@@ -1,6 +1,7 @@
 ﻿using Entities;
 using Microsoft.IdentityModel.Tokens;
 using Services.Helpers;
+using Services.Logs;
 using Services.Region;
 using System;
 using System.Collections.Generic;
@@ -42,6 +43,8 @@ namespace Services.Tokens
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
 
+            LogService.Add("Token Created", user.Id);
+
             return tokenHandler.WriteToken(token);
 
         }
@@ -57,6 +60,8 @@ namespace Services.Tokens
             var userName = jwtToken.Claims.First(claim => claim.Type == "Name").Value;
 
             var user = new User() { Username = userName, Id = convertedUserId };
+
+            LogService.Add("Token Read", user.Id);
 
             return user;
         }

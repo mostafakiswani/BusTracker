@@ -17,7 +17,7 @@ namespace Services.Notifications
             var notification = new NotificationDto() { Body = body, UserId = Id };
 
             NotificationPushServices.Push(user.DeviceToken, notification);
-            LogService.Add(body, Id);
+            LogService.Add(body, user.Id);
 
         }
 
@@ -28,7 +28,7 @@ namespace Services.Notifications
             var notification = new NotificationDto() { Body = body, UserId = Id };
 
             NotificationPushServices.Push(user.DeviceToken, notification);
-            LogService.Add(body, Id);
+            LogService.Add(body, user.Id);
 
         }
         public static void Send(User user, string body, int busId)
@@ -38,7 +38,7 @@ namespace Services.Notifications
             var notification = new NotificationDto() { Body = body, UserId = Id };
 
             NotificationPushServices.Push(user.DeviceToken, busId, notification);
-            LogService.Add(body, Id);
+            LogService.Add(body, user.Id);
 
         }
 
@@ -51,7 +51,7 @@ namespace Services.Notifications
                 var notification = new NotificationDto() { Body = body, UserId = Id };
 
                 NotificationPushServices.Push(user.DeviceToken, notification);
-                LogService.Add(body, Id);
+                LogService.Add(body, user.Id);
 
             }
         }

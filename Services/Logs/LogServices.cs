@@ -1,5 +1,6 @@
 ﻿using DataAccess.Interfaces;
 using Entities;
+using Services.Helpers;
 using Services.Region;
 using System;
 using System.Collections.Generic;
@@ -21,9 +22,11 @@ namespace Services.Logs
 
         }
 
-        public static void Add(string action, string userId)
+        public static void Add(string action, Guid userId)
         {
-            var log = new Log() { Action = string.Format("{0} For {1}", action, userId), CreatedAt = RegionServices.CurrentDateTime() };
+            var Id = SharedServices.ConvertGuid(userId);
+
+            var log = new Log() { Action = string.Format("{0} For {1}", action, Id), CreatedAt = RegionServices.CurrentDateTime() };
 
             repository.Insert(log);
 

@@ -2,6 +2,7 @@
 using Entities;
 using Entities.Dto.User;
 using Services.Helpers;
+using Services.Logs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,11 +34,13 @@ namespace Services.Users
         public void DeleteUser(Guid id)
         {
             usersRepository.Delete(id);
+            LogService.Add("User Deleted", id);
         }
 
         public void BlockUser(Guid id)
         {
             usersRepository.Block(id);
+            LogService.Add("User Blocked", id);
         }
 
         public bool IsUserAuthorized(Guid id)
@@ -57,6 +60,7 @@ namespace Services.Users
                 return false;
 
             usersRepository.ChangePassword(changePasswordDto.Id, changePasswordDto.NewPassword);
+            LogService.Add("Passwrod Changed", changePasswordDto.Id);
 
             return true;
         }
@@ -75,6 +79,8 @@ namespace Services.Users
             if (SharedServices.IsObjectNull(userToCreate))
                 return null;
 
+            LogService.Add("User Created", userToCreate.Id);
+
             return userToCreate;
         }
 
@@ -90,6 +96,8 @@ namespace Services.Users
 
             if (SharedServices.IsObjectNull(userToLogin))
                 return null;
+
+            LogService.Add("User Logged In", userToLogin.Id);
 
             return userToLogin;
         }
@@ -110,6 +118,8 @@ namespace Services.Users
             var userToEdit = new User() { Username = user.Username, Email = user.Email, Phonenumber = user.Phonenumber };
 
             repository.Update(userToEdit);
+
+            LogService.Add("User Profile Edited", user.Id);
 
             return user;
 
