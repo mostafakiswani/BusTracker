@@ -21,6 +21,14 @@ namespace Services.Helpers
         {
             return validateData.GetType().GetProperties().All(p => p.GetValue(validateData) != null);
         }
+        public static bool IsObjectNull(object validateData)
+        {
+            if (validateData == null)
+                return true;
+
+            return false;
+        }
+
 
     }
 }

@@ -18,7 +18,7 @@ namespace Services.Users
 
         private bool IsUserPasswordValid(ChangePasswordDto changePasswordDto)
         {
-            if (changePasswordDto == null)
+            if (SharedServices.IsObjectNull(changePasswordDto))
                 return false;
 
             if (!SharedServices.IsValid(changePasswordDto))
@@ -64,7 +64,7 @@ namespace Services.Users
 
         public User Register(RegisterDto user)
         {
-            if (user == null)
+            if (SharedServices.IsObjectNull(user))
                 return null;
 
             if (!SharedServices.IsValid(user))
@@ -72,7 +72,7 @@ namespace Services.Users
 
             var userToCreate = usersRepository.Register(user);
 
-            if (userToCreate == null)
+            if (SharedServices.IsObjectNull(userToCreate))
                 return null;
 
             return userToCreate;
@@ -80,7 +80,7 @@ namespace Services.Users
 
         public User Login(LoginDto user)
         {
-            if (user == null)
+            if (SharedServices.IsObjectNull(user))
                 return null;
 
             if (!SharedServices.IsValid(user))
@@ -88,7 +88,7 @@ namespace Services.Users
 
             var userToLogin = usersRepository.Login(user);
 
-            if (userToLogin == null)
+            if (SharedServices.IsObjectNull(userToLogin))
                 return null;
 
             return userToLogin;
@@ -96,7 +96,7 @@ namespace Services.Users
 
         public User Edit(EditProfileDto editProfileDto)
         {
-            if (editProfileDto == null)
+            if (SharedServices.IsObjectNull(editProfileDto))
                 return null;
 
             if (!SharedServices.IsValid(editProfileDto))
