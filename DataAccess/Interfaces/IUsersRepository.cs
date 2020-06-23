@@ -10,9 +10,13 @@ namespace DataAccess.Interfaces
     {
         void Block(Guid id);
         void Delete(Guid id);
+        void ChangePassword(Guid Id, string password);
         bool IsAuthorized(Guid id);
-        bool IsExisit(string email, string phonenumber);
+        bool ValidateUserPassword(Guid id, string password);
         User Login(LoginDto loginDto);
         User Register(RegisterDto registerDto);
+        User GetUserByPhonenumber(string phonenumber);
+        User GetUserByEmail(string email);
+
     }
 }

@@ -21,20 +21,11 @@ namespace DataAccess.Repositories
             this.context = context;
         }
 
-        private User GetUserByPhonenumber(string phonenumber)
-        {
-            var user = context.Users.FirstOrDefault(x => x.Phonenumber == phonenumber);
-
-            if (user == null)
-                return null;
-
-            return user;
-        }
         private bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
         {
             using (var hmac = new System.Security.Cryptography.HMACSHA512(passwordSalt))
             {
-                var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+                var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
 
                 for (int i = 0; i < computedHash.Length; i++)
                 {
@@ -50,8 +41,16 @@ namespace DataAccess.Repositories
             using (var hmac = new System.Security.Cryptography.HMACSHA512())
             {
                 passwordSalt = hmac.Key;
-                passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+                passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
             }
+        }
+        private bool IsExisit(string email, string phonenumber)
+        {
+            var user = context.Users.FirstOrDefault(x => x.Email == email || x.Phonenumber == phonenumber);
+            if (user == null)
+                return false;
+
+            return true;
         }
 
         public void Block(Guid id)
@@ -75,6 +74,7 @@ namespace DataAccess.Repositories
         public bool IsAuthorized(Guid id)
         {
             var user = repository.GetById(id);
+
             if (user == null)
                 return false;
 
@@ -84,16 +84,25 @@ namespace DataAccess.Repositories
             return true;
         }
 
-        public bool IsExisit(string email, string phonenumber)
+        public User GetUserByPhonenumber(string phonenumber)
         {
-            var user = context.Users.FirstOrDefault(x => x.Email == email || x.Phonenumber == phonenumber);
-            if (user == null)
-                return false;
+            var user = context.Users.FirstOrDefault(x => x.Phonenumber == phonenumber);
 
-            return true;
+            if (user == null)
+                return null;
+
+            return user;
         }
 
+        public User GetUserByEmail(string email)
+        {
+            var user = context.Users.FirstOrDefault(x => x.Email == email);
 
+            if (user == null)
+                return null;
+
+            return user;
+        }
 
         public User Login(LoginDto loginDto)
         {
@@ -109,6 +118,8 @@ namespace DataAccess.Repositories
                 return null;
 
             user.DeviceToken = loginDto.DeviceToken;
+            user.IsActive = true;
+
             repository.Update(user);
 
             return user;
@@ -128,6 +139,30 @@ namespace DataAccess.Repositories
             repository.Insert(userToCreate);
 
             return userToCreate;
+        }
+
+        public bool ValidateUserPassword(Guid id, string password)
+        {
+            var user = repository.GetById(id);
+
+            if (!VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt))
+                return false;
+
+            return true;
+        }
+
+        public void ChangePassword(Guid Id, string password)
+        {
+            var user = repository.GetById(Id);
+
+            byte[] passwordHash, passwordSalt;
+
+            CreatePasswordHash(password, out passwordHash, out passwordSalt);
+
+            user.PasswordHash = passwordHash;
+            user.PasswordSalt = passwordSalt;
+
+            repository.Update(user);
         }
     }
 }
