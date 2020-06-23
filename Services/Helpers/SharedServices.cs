@@ -12,7 +12,12 @@ namespace Services.Helpers
             return id.ToString();
         }
 
-        public static bool IsNull (object validateData)
+        public static Guid ConvertToGuid(string id)
+        {
+            return new Guid(id);
+        }
+
+        public static bool IsValid (object validateData)
         {
             return validateData.GetType().GetProperties().All(p => p.GetValue(validateData) != null);
         }

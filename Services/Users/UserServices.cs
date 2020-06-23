@@ -19,9 +19,10 @@ namespace Services.Users
             if (user == null)
                 return null;
 
-            if (SharedServices.IsNull(user))
+            if (!SharedServices.IsValid(user))
                 return null;
 
+            repository.Insert(user);
 
             return user;
         }
